@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  <title>My Chart.js Line Chart</title>
+
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+
+
+  </div>
+  <script>
+    var myChart = document.getElementById('myChart').getContext('2d');
+    //Global options
+    Chart.defaults.global.defaultFontFamily = 'Abel';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = 'rgb(0,0,0)';
+
+    var testChart = new Chart(myChart, {
+      type:'bar',
+      data:{
+        labels:['First', 'Second', 'Third', 'Fourth'],
+        datasets:[{
+          data:[100, 200, 300, 400],
+          backgroundColor:[
+        'rgba(189,215,231,.7)',
+        'rgba(107,174,214,.7)',
+        'rgba(49,130,189,.7)',
+        'rgba(8,81,156,.7)'
+        ],
+        borderWidth:1,
+        borderColor:'#777',
+        hoverBorderWidth:2,
+        hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        legend: {
+          display: false
+        },
+        title: {
+						display: true,
+						text: 'Total Things'
+          },
+        scales:{
+          xAxes:[{gridLines:{display: false}}],
+          yAxes:[{ticks:{beginAtZero: true},
+          gridLines:{display: false}}]
+      }
+      }
+    });
+  </script>
+
+</body>
+</html>
